@@ -1,0 +1,164 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+//estrutura tipo peca
+typedef struct {
+    int lado1;
+    int lado2;
+} tipopeca;
+
+void fMostra(tipopeca pecas[28]);
+void fNumera(tipopeca pecas[28]);
+void fEmbaralha(tipopeca pecas[28]);
+void fEmbaralhaMostra(tipopeca pecas[28]);
+void fMostraEmOrdem(tipopeca pecas[28]);
+
+int main() {
+
+    
+	tipopeca pecas[28];
+	fNumera(pecas);
+    int novamente;
+    int op = 0;
+	
+	
+	
+	
+	do{
+		
+		printf("\Menu\n");
+		printf("1 - Inicializar pecas\n");
+		printf("2 - Embaralhar as pecas\n");
+		printf("3 - Mostrar pecas embaralhadas\n");
+		printf("4 - Mostrar pecas em ordem\n");
+		printf("5 - Sair\n");
+		
+		scanf("%d",&op);
+		
+		
+		switch(op){
+			case 1:
+				fMostra (pecas);
+                break;
+            case 2:
+            	fEmbaralha(pecas);
+            	printf("Pecas embaralhadas!\n");
+                break;
+            case 3:
+            	//fEmbaralha(pecas);
+            	fEmbaralhaMostra(pecas);
+                break;
+            case 4:
+            	fMostraEmOrdem(pecas);
+            	break;
+            case 5:
+            	break;
+            default:
+                printf("Opcao invalida! Tente novamente.\n");
+                
+		}
+		
+		
+		
+		
+		
+		
+	}while(op != 5);
+
+
+
+return 0;
+}
+    
+    
+
+void fMostra(tipopeca pecas[28]) {
+    /*for (int i = 0; i < 7; i++) {
+    	printf("\n");
+    	for(int j = i; j < 7; j++)
+        	printf("[%d|%d] ", pecas[i].lado1, pecas[i].lado2);
+    }*/
+    
+    int domino[7][7] = {0}; 
+
+
+    for (int i = 0; i <= 6; i++) {
+    	
+        for (int j = i; j <= 6; j++) {
+
+            printf("[%d|%d] ", i, j);
+        }
+        printf("\n");
+        
+        
+    }
+	printf("\n");
+  
+}
+
+void fNumera(tipopeca pecas[28]) {
+    int k = 0;
+    
+    for (int i = 0; i <= 6; i++) {
+        for (int j = i; j <= 6; j++) {
+            pecas[k].lado1 = i;    //contador atribuido pra lado1
+            pecas[k].lado2 = j;    //contador atribuido pra lado2
+            k++;
+        }
+    }
+}
+
+void fEmbaralhaMostra(tipopeca pecas[28]) {
+    /*srand(time(NULL));
+    
+    for (int i = 27; i > 0; i--) {
+        int j = rand() % (i + 1);
+        
+        //Troca as pecas de lugar
+        tipopeca temp = pecas[i];
+        pecas[i] = pecas[j];
+        pecas[j] = temp;
+    }*/
+    
+    for(int i = 0; i < 28; i++){
+    	printf("[%d|%d] ", pecas[i].lado1, pecas[i].lado2);
+	}
+	printf("\n");
+}
+
+void fEmbaralha(tipopeca pecas[28]) {
+    srand(time(NULL));
+    
+    for (int i = 27; i > 0; i--) {
+        int j = rand() % (i + 1);
+        
+        //Troca as pecas de lugar
+        tipopeca temp = pecas[i];
+        pecas[i] = pecas[j];
+        pecas[j] = temp;
+    }
+    
+
+}
+
+void fMostraEmOrdem(tipopeca pecas[28]) {
+    /*for (int i = 0; i < 7; i++) {
+    	printf("\n");
+    	for(int j = i; j < 7; j++)
+        	printf("[%d|%d] ", pecas[i].lado1, pecas[i].lado2);
+    }*/
+    
+    int domino[7][7] = {0}; 
+
+
+    for (int i = 0; i <= 6; i++) {
+    	
+        for (int j = i; j <= 6; j++) {
+
+            printf("[%d|%d] ", i, j);
+        }
+    }
+	printf("\n");
+  
+}
