@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int mostrarMap() {
 
     int domino[7][7] = {0}; 
@@ -6,9 +8,12 @@ int mostrarMap() {
     for (int i = 0; i <= 6; i++) {
     	
         for (int j = i; j <= 6; j++) {
-
-            printf("[%d|%d] ", i, j);
-
+        	
+            domino[i][j] = i;
+            
+            domino[j][i] = j;
+            
+            printf("[%d|%d] ", domino[i][j], domino[j][i]);
         }
         printf("\n");
     }
