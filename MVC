@@ -1,1 +1,74 @@
 
+#include<stdio.h>
+#include<iostream>
+
+
+int criarSequencia(){
+	
+	int N, p, j, testeMult;
+	int x, z, y, t;
+	
+	printf("Digite um numero entre 2 e 1000000: \n");
+	scanf("%d",&N);
+	
+	testeMult = 2 * N + 1;
+	
+	printf("\ntesteMult: %d\n", testeMult);
+	
+	p = 2 * N;
+	
+	printf("\n");
+	
+	for(int i = 1; i <= p; i++){
+		
+		y = i * i;
+		
+		printf("Elemento %d: %d\n",i ,y);
+		
+	}
+	
+	printf("\nEscolha um numero da lista: \n");
+	scanf("%d", &x);
+	
+	for(int i = 1; i <= p; i++){
+		
+		j = i * i;
+		
+		t = x - j;
+		
+		if(t % testeMult ==- 0){
+			
+			printf("\nNumero para ganhar: %d\n", t);
+			printf("\nMultiplos: %d", j);
+		
+		}
+			
+	}
+	
+}
+		
+  
+
+main(){
+	
+	criarSequencia();
+	
+	
+}
+
+
+
+/*	do{
+		
+		
+		n = 
+		x = i - n;
+		
+		
+		
+	}while(x % 2 != 0);
+	*/
+	
+	
+	
+	
